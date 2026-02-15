@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+:root {
+  --bg: #f5efe3;
+  --text: #1f2624;
+  --muted: #52605a;
+  --panel: #fffaf2;
+  --line: #d2c6b3;
+  --accent: #0a7f5a;
+  --accent-2: #cb5f2a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+  background:
+    radial-gradient(circle at 20% 20%, #ffdba3 0%, transparent 30%),
+    radial-gradient(circle at 90% 15%, #9fd6c5 0%, transparent 24%),
+    linear-gradient(180deg, #fdf7ec 0%, var(--bg) 100%);
+  background-attachment: fixed;
+}
+
+a {
+  color: inherit;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+}
+
+.page {
+  width: min(1100px, 100%);
+  padding: 2.5rem 1.2rem 4rem;
+}
+
+.section {
+  padding: 2rem 0;
+}
+
+.reveal {
+  animation: rise 560ms ease both;
+}
+
+.eyebrow {
+  margin: 0;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  margin: 0;
+}
+
+h1 {
+  margin-top: 0.3rem;
+  font-size: clamp(2.2rem, 5vw, 4.4rem);
+  line-height: 0.95;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2.3rem);
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.12rem;
+}
+
+.hero .lede {
+  max-width: 70ch;
+  font-size: 1.06rem;
+  color: var(--muted);
+}
+
+.hero-links {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  color: var(--muted);
+}
+
+.cta-row {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 0.55rem 0.95rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #f6fbf9;
+  border-color: var(--accent);
+}
+
+.grid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.skills-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.project-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.card {
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 86%, white 14%);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 8px 26px rgba(13, 20, 18, 0.06);
+}
+
+.card p {
+  margin: 0.45rem 0;
+  color: var(--muted);
+}
+
+.timeline {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.timeline-item {
+  border-left: 4px solid var(--accent-2);
+  border-radius: 12px;
+  padding: 1rem 1rem 1rem 1.1rem;
+  background: rgba(255, 252, 244, 0.7);
+}
+
+.timeline-head p,
+.timeline-head span {
+  margin: 0.25rem 0;
+}
+
+.timeline-head span {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.timeline-item ul {
+  margin: 0.7rem 0;
+  padding-left: 1.15rem;
+}
+
+.timeline-item li {
+  margin: 0.36rem 0;
+}
+
+.timeline-item a,
+.project-card a {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.project-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.project-top span {
+  color: var(--accent-2);
+  font-size: 0.85rem;
+}
+
+.stack {
+  font-size: 0.93rem;
+}
+
+.education .card {
+  max-width: 440px;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 960px) {
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .skills-grid,
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page {
+    padding-top: 1.5rem;
+  }
+}
